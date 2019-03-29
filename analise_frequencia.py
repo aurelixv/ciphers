@@ -18,7 +18,6 @@ caracteres = {}
 mensagem = list(abre_txt(sys.argv[1]))
 
 for char in mensagem:
-    #if ord(char) in alfabeto:
     if char not in caracteres:
         caracteres.update({char:1})
     else:
@@ -31,4 +30,10 @@ for char in caracteres:
     freq = caracteres[char]
     print(char + ' - ' + str(freq) + ' - ' + "%.2f" % ((freq/numero_caracteres)*100) + '%')
 
-print('Logo, a chave da cifra deve ser: ' + str(alfabeto.index(ord(list(caracteres.keys())[0])) - alfabeto.index(ord('a'))))
+index = 0
+for char in caracteres:
+    if ord(char) in alfabeto:
+        index = ord(char)
+        break
+
+print('Logo, a chave da cifra deve ser: ' + str(alfabeto.index(index) - alfabeto.index(ord('a'))))

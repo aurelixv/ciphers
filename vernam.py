@@ -30,9 +30,9 @@ def vernam(mensagem, chave):
         i += 1
     return mensagem_cifrada
 
-mensagem = abre_txt('vernam-cifrada.txt')
-chave = abre_txt('chave.txt')
+mensagem = abre_txt(sys.argv[1])
+chave = abre_txt(sys.argv[2])
 
 mensagem_cifrada = vernam(mensagem, chave)
 
-cria_txt('vernam-cifrada.txt', mensagem_cifrada)
+cria_txt(sys.argv[3], mensagem_cifrada)
